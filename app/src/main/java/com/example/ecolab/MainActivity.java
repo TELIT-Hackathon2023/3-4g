@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     class OnClick implements OnMapReadyCallback, View.OnClickListener, GoogleMap.OnMarkerClickListener {
-        private Marker m_ostrov, m_spseke, m_kukuc, m_upjs, m_tuke;
+        private Marker m_ostrov, m_it, m_kukuc, m_upjs, m_tuke;
         private ConstraintLayout constraintLayout;
         private Button bt_back;
 
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             LatLng ostrov = new LatLng(48.70525, 21.24925);
             googleMap.setOnMarkerClickListener(this);
             m_ostrov = googleMap.addMarker(new MarkerOptions().position(ostrov).title("SOS Ostrovskeho").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-           // googleMap.setOnMarkerClickListener(m_ostrov);
+
 
             LatLng spseke = new LatLng(48.73343, 21.24767);
             googleMap.addMarker(new MarkerOptions().position(spseke).title("SPS Elektrotechnicka").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
@@ -181,8 +182,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             LatLng itValley = new LatLng(48.73181, 21.24429);
-            googleMap.addMarker(new MarkerOptions().position(itValley).title("IT Valley").icon(BitmapDescriptorFactory.fromResource(R.drawable.icon)));
-;
+            googleMap.setOnMarkerClickListener(this);
+            m_it = googleMap.addMarker(new MarkerOptions().position(ostrov).title("It Valley").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
             LatLng syntax = new LatLng(48.71873, 21.26459);
             googleMap.addMarker(new MarkerOptions().position(syntax).title("Syntax").icon(BitmapDescriptorFactory.fromResource(R.drawable.icon)));
@@ -219,9 +220,31 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onMarkerClick(@NonNull Marker marker) {
-            if (marker.equals(m_ostrov)) {
+            if (marker.equals(m_it)) {
                constraintLayout.setVisibility(View.VISIBLE);
-            }
+                ImageView img = findViewById(R.id.pick);
+                img.setImageResource(R.drawable.valley);
+            }/*else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }else if (marker.equals(m_ostrov)) {
+                constraintLayout.setVisibility(View.VISIBLE);
+            }*/
             return false;
         }
     }
