@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private Button play, chall, credits, exit, confirm;
+    private Button play, chall, credits, exit, confirm, btBack;
     private int coins, count;
     private File file;
     private TextView qeustion;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         count = 0;
         main();
 
@@ -119,6 +120,14 @@ public class MainActivity extends AppCompatActivity {
                 count++;
                 if(count >= 3) main();
                 else qeustion.setText(questions.get(count));
+            }
+        });
+
+        btBack = findViewById(R.id.but_back);
+        btBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                main();
             }
         });
     }

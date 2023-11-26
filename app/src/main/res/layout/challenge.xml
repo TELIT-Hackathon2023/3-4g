@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/back">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/shape"
         android:paddingLeft="15dp"
@@ -47,10 +49,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="QUIZ"
+        android:textColor="@color/white"
         android:textSize="40dp"
-        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/quest"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,6 +64,7 @@
         android:id="@+id/but_back"
         android:layout_width="101dp"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         android:backgroundTint="@color/black"
         android:text="&lt;"
         android:textAlignment="center"
@@ -71,8 +78,15 @@
         android:id="@+id/quest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center_horizontal"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -86,19 +100,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quest">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/conf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="200dp"
         android:text="CONFIRM"
+        android:textSize="25dp"
+        android:textColor="@color/kingblue"
+        android:backgroundTint="@color/coins"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ans"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shapeh"
+        android:hint="hint"
+        android:textAlignment="center"
+        android:textColorHint="@color/white"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/conf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quest" />
 </androidx.constraintlayout.widget.ConstraintLayout>
